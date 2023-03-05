@@ -1,0 +1,26 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+    setlocale(LC_ALL, "Russian");
+    int n = 1000, i = 1, sum = 0;
+   
+    while (i <= n)
+    { 
+        if (i % 7 == 0) 
+        {
+            sum = sum + i;
+            
+            i =i+4;
+            
+        }
+        else if (i%7!=0)
+        {
+            i = i + 4;
+            
+        }
+    }      
+    
+            cout << sum << '\n';
+    return 0;
+}
