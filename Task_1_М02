@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+    setlocale(LC_ALL, "Russian");
+    int a = 1, n = 1;
+    double S = 0;
+    cout << "Введите длину стороны" << '\n';
+    cin >> a;
+    cout << "Введите число сторон" << '\n';
+    cin >> n;
+    if (n <= 4)
+    {
+        S = (a * a*n)/(4*tan(180/n));
+        cout << S << '\n';
+    }
+    else if (n == 4)
+    {
+        S = a * a;
+        cout << S << '\n';
+    }
+    else (n == 3);
+    {
+        S = (sqrt(3) * a * a) / 4;
+        cout << S << '\n';
+        }
+   
+    return 0;
+}
