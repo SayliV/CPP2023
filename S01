@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+    setlocale(LC_ALL, "Russian");
+
+    int a = 10, a_1 = 10, a_2 = 7, a_3 = 2;
+    float b = 5;
+    char c = 'G';
+    bool d; 
+
+    cout << "Введите целое число: ";
+    cin >> a;
+
+    cout << "Введите добное число число: ";
+    cin >> b;
+
+    cout << "Введите любую букву: ";
+    cin >> c;
+
+    cout << "Введите 0/1: ";
+    cin >> d;
+    
+    cout << "a_2 + a_1 = " << (a_2 + a_1) << endl
+        << "a_1 * a_3 = " << (a_1 * a_3) << endl
+        << "a_1 - a_2  = " << (a_1 - a_2) << endl
+        << "a_1 / a_3  = " << (a_1 / a_3) << endl;
+    return 0;
+}
