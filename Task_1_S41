@@ -1,0 +1,20 @@
+#include <iostream>
+#include <clocale>
+using namespace std;
+
+void squared_sum(float a, float b) {
+    float c = (a + b) * (a + b);
+    cout << "Квадрат суммы a and b = " << c << '\n';
+}
+
+
+int main() {
+    setlocale(LC_ALL, "Russian");
+    float a, b;
+    cout << "Введите чилсо a ";
+    cin >> a;
+    cout << "Введите чилсо b ";
+    cin >> b;
+    squared_sum(a, b);
+    
+}
