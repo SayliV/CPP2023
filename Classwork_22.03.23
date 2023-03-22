@@ -1,0 +1,22 @@
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+
+int main()
+{
+setlocale (0, "Russian");
+int val=28;
+int * pointer;
+float val1=28.77;
+float *pointer1;
+pointer=&val;
+pointer1=&val1;
+
+*pointer=48;
+cout<< val<<endl;
+cout<< *pointer<<endl;
+cout<< val1<<endl;
+cout<< *pointer1<<endl;
+return 0;
+}
