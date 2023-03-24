@@ -1,0 +1,34 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    setlocale (0, "Russian");
+    char * dictionary[][2]={
+    "раз", "Первая строчка",
+    "два", "Вторая строчка",
+    "три", "Третья строчка",
+    "четыре", "Четвёртая строчка"
+    };
+    string num;
+    cout<<"Введите цифру" << endl;
+    cin>> num;
+
+    int len = sizeof(dictionary)/sizeof(dictionary[0]);
+    cout<<len<<endl;
+    cout<<dictionary[0]<<endl;
+    for (int i=0;i<len;++i)
+    {
+        if (dictionary[i][0]==num)
+        {
+            cout<<dictionary[i][1]<<endl;
+        }
+    }
+
+
+    return 0;
+}
+
+
+
