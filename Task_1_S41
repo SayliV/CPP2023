@@ -2,9 +2,9 @@
 #include <clocale>
 using namespace std;
 
-void squared_sum(float a, float b) {
-    float c = (a + b) * (a + b);
-    cout << "Квадрат суммы a and b = " << c << '\n';
+float squared_sum(float a, float b) {
+    float sum_2 = (a + b)*(a+b);
+    return sum_2;
 }
 
 
@@ -15,6 +15,6 @@ int main() {
     cin >> a;
     cout << "Введите чилсо b ";
     cin >> b;
-    squared_sum(a, b);
-    
+    cout << "Квадрат суммы числа a и b:" << " " << squared_sum(a, b) << endl;
+    return 0;
 }
