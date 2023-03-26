@@ -1,29 +1,48 @@
 #include <iostream>
+#include <math.h>
+#include <stdio.h>
 using namespace std;
-int main()
-{
-    setlocale(LC_ALL, "Russian");
-    int a = 1, n = 1;
-    double S = 0;
-    cout << "Введите длину стороны" << '\n';
-    cin >> a;
-    cout << "Введите число сторон" << '\n';
-    cin >> n;
-    if (n <= 4)
-    {
-        S = (a * a*n)/(4*tan(180/n));
+
+
+float plochadi(int a, int n) {    
+    double S;
+    float degrees = 180;
+    double tan_2;
+    float pi = 3.1415;
+    if (n == 3)
+    {   
+        S = (sqrt(3) * a * a) / 4;
         cout << S << '\n';
+             
     }
     else if (n == 4)
     {
         S = a * a;
         cout << S << '\n';
+        
     }
-    else (n == 3);
+    else (n >4);
     {
-        S = (sqrt(3) * a * a) / 4;
-        cout << S << '\n';
-        }
-   
+        tan_2 = tan(180 * pi / 180);
+        cout << tan_2;
+        S = (a * a * n) / (4 * tan((tan_2/4)));
+        cout << S << '\n';  
+        
+    }
+
+    return S;
+}
+
+int main()
+{
+    setlocale(LC_ALL, "Russian");
+    float a, b;
+    cout << "Введите длину стороны 'a' "<<endl;
+    cin >> a;
+    cout << "Введите чилсо сторон 'n' " <<endl;
+    cin >> b;
+    cout << "Площадь многоугольника" << " " << plochadi(a, b)<<endl;
+    return 0;
+
     return 0;
 }
