@@ -1,0 +1,21 @@
+#include <iostream>
+#include <clocale>
+using namespace std;
+const int n = 10;
+
+int main(){	
+	setlocale(LC_ALL, "Russian");
+	int i, b[n];
+	for (i = 0; i < n; i++) {
+		cout << "Введите " << "" << i << "-ый индекс:" << " ";
+		cin >> b[i];
+	}
+	for (i = 0; i < n - 1; i++)
+	{
+		int imax = i;
+		for (int j = i + 1; j < n; j++) if (b[j] > b[imax]) imax = j;
+		int a = b[i]; b[i] = b[imax]; b[imax] = a;
+	}
+	for (i = 0; i < n; i++) cout << b[i] << " ";
+	return 0;
+}
