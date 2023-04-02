@@ -1,48 +1,39 @@
 #include <iostream>
-#include <math.h>
+#include <cmath>
 #include <stdio.h>
 using namespace std;
 
+const float PI = 3.1415;
+float Tan(int a, int n);
 
-float plochadi(int a, int n) {    
-    double S;
-    float degrees = 180;
-    double tan_2;
-    float pi = 3.1415;
-    if (n == 3)
-    {   
+float plochadi(int a, int n) {
+   float S;
+   if (n == 3){
         S = (sqrt(3) * a * a) / 4;
-        cout << S << '\n';
-             
-    }
-    else if (n == 4)
-    {
+        return S;
+   }
+    else if (n == 4) {
         S = a * a;
-        cout << S << '\n';
-        
+        return S;
     }
-    else (n >4);
-    {
-        tan_2 = tan(180 * pi / 180);
-        cout << tan_2;
-        S = (a * a * n) / (4 * tan((tan_2/4)));
-        cout << S << '\n';  
-        
+    else (n > 4); {
+       S = (a * a * n) / (4 * Tan(a,n));
+        cout << S << endl;
+        return S;
     }
-
-    return S;
 }
-
-int main()
-{
+float Tan(int a, int n) {
+    float Tan = tan((180 / n) * PI / 180);
+    return Tan;
+}
+int main(){
     setlocale(LC_ALL, "Russian");
-    float a, b;
-    cout << "Введите длину стороны 'a' "<<endl;
+    float a, n;
+    cout << "Введите длину стороны 'a' " << endl;
     cin >> a;
-    cout << "Введите чилсо сторон 'n' " <<endl;
-    cin >> b;
-    cout << "Площадь многоугольника" << " " << plochadi(a, b)<<endl;
-    return 0;
-
+    cout << "Введите чилсо сторон 'n' " << endl;
+    cin >> n;
+    cout << "Площадь многоугольника" << " " << plochadi(a, n) << endl; // Выводим площадь многоугольника
+    if (n>4) cout << "Тангенс угла " << 180/n << " градусов = " << Tan (a, n) << endl; // Выводим тангенс угла, переведённого в радианы 
     return 0;
 }
