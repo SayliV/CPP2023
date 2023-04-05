@@ -7,17 +7,17 @@ const float PI = 3.1415;
 float Tan(int a, int n);
 
 float plochadi(int a, int n) {
-   float S;
-   if (n == 3){
+    float S;
+    if (n == 3) {
         S = (sqrt(3) * a * a) / 4;
         return S;
-   }
+    }
     else if (n == 4) {
         S = a * a;
         return S;
     }
-    else (n > 4); {
-       S = (a * a * n) / (4 * Tan(a,n));
+    else if (n > 4) {
+        S = (a * a * n) / (4 * Tan(a, n));
         cout << S << endl;
         return S;
     }
@@ -26,7 +26,7 @@ float Tan(int a, int n) {
     float Tan = tan((180 / n) * PI / 180);
     return Tan;
 }
-int main(){
+int main() {
     setlocale(LC_ALL, "Russian");
     float a, n;
     cout << "Введите длину стороны 'a' " << endl;
@@ -34,6 +34,6 @@ int main(){
     cout << "Введите чилсо сторон 'n' " << endl;
     cin >> n;
     cout << "Площадь многоугольника" << " " << plochadi(a, n) << endl; // Выводим площадь многоугольника
-    if (n>4) cout << "Тангенс угла " << 180/n << " градусов = " << Tan (a, n) << endl; // Выводим тангенс угла, переведённого в радианы 
+    if (n > 4) cout << "Тангенс угла " << 180 / n << " градусов = " << Tan(a, n) << endl; // Выводим тангенс угла, переведённого в радианы 
     return 0;
 }
