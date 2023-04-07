@@ -1,0 +1,24 @@
+#include <iostream>
+using namespace std;
+
+
+void swap (int &first, int &second){
+int temp;
+cout<<first<<":"<<&first <<endl;
+cout<<second<<":"<<&second <<endl;
+temp=second;
+second=first;
+first=temp;
+cout<<first<<":"<<&first <<endl;
+cout<<second<<":"<<&second <<endl;
+}
+
+int main (){
+int num1 = 13, num2=16;
+
+cout<<swap(num1,num2)<<endl;
+
+return 0;
+}
+
+
