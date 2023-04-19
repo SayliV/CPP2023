@@ -1,6 +1,7 @@
 //https://metanit.com/cpp/tutorial/4.8.php
 
 
+//
 #include <iostream>
 using namespace std;
 float velocity_40(float N); // функция для сокрости, если мы взяли его скорость первоночально равной 40км/ч
@@ -8,7 +9,6 @@ const int length_lap = 500;// length lap
 const float presents = 0.95;//%
 const float velocity_m_per_seconds_40 = 11.11; // speed 1 pri 40km/h
 const float velocity_m_per_seconds_35 = 9.72; // speed 2 pri 35km/h
-
 
 float velocity_40(float N = 0) {
 
@@ -23,22 +23,21 @@ float velocity_40(float N = 0) {
         cout << "Круг: " << i + 1 << " " << "Скорость: " << speed << " м/с;" << " " << "Время:" << " " << time << " " << "c" << endl;
         cout << "Всего времени затарчено:" << " " << sum_time << "с" << " " << "или в минутах:" << " " << sum_time / 60 << "м" << endl;
     }
-   return sum_time;
+    return sum_time;
 }
 
-
 int main() {
-    int N = 0;   // колчичестов кргуов  
-    float (*ukz)(float) ;//создал указатель на функцию
-    ukz = &velocity_40; // инициальизировали указатель
+    int N = 0;   // колчичестов кргуов
+    float (*ukz)(float ) {velocity_40};//создал указатель на функцию
+    float result = ukz(N); // инициальизировали указатель
    // присвоил адрес функции к указателю
-    setlocale(LC_ALL, "Russian");   
+    setlocale(LC_ALL, "Russian");
     cout << "Введите количестов желаемых кругов не больше 100" << endl;
-      
+
     cin >> N;
     cout << velocity_40(N);
     cout << "Для продолжения нажмите любую кнопку" << endl;
     //system("pause");
-    cout << "Сумма всего затраченного времени = " << " " << velocity_40 << endl;
+    cout << "Сумма всего затраченного времени = " << " " << result<< endl;
     return 0;
 }
