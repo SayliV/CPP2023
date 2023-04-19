@@ -69,3 +69,43 @@ int main (){
     jeep.rep_priv();
     return 0;
 }
+
+
+//параметрический конструктор
+#include <iostream>
+using namespace std;
+
+class Automobile{
+private:
+    int velocity,fuel_by_100, masss,tank;
+
+public:
+    string color;
+    int wheels, lights, fuel;
+    Automobile(int f,int wh,int t, int fb100);
+    void rep_priv();
+
+};
+
+
+Automobile::Automobile(int f,int wh,int t, int fb100){
+masss=800; velocity=180;
+color="gren"; lights=6;
+fuel_by_100=fb100;tank=t;
+wheels=wh;  fuel=f;
+
+}
+
+
+
+void Automobile::rep_priv(){cout<<velocity<<endl;
+    cout<<fuel_by_100<<endl;
+    cout<<masss<<endl;
+    cout<<tank<<endl;
+    }
+
+int main (){
+    Automobile jeep(20, 40,75,80);
+    jeep.rep_priv();
+    return 0;
+}
