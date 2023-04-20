@@ -1,0 +1,47 @@
+#include <iostream>
+using namespace std;
+
+class Bucket {
+private:
+    
+public:
+    int volume;
+    int used;
+    Bucket(int v) {
+        volume = v;
+        used = 0;
+    }
+    void flush() {
+        used = 0;
+    }
+    int fill(int v) {
+        if (used + v <= volume) {
+            used += v;
+            return 0;
+        }
+        else {
+            int diff = volume - used;
+            used = volume;
+            return v - diff;
+        }
+    }
+};
+
+int main() {
+    setlocale(0, "RUSSIAN");
+    Bucket b(10);
+    cout << "Объём ведра: " << b.volume << endl;
+    cout << "Сколкько занято: " << b.used << endl;
+
+    b.fill(5);
+    cout << "Ведро используется после наполнения на 5 литров: " << b.used << endl;
+
+    int remaining = b.fill(8);
+    cout << "Ведро используется после наполнения на 8 литров: " << b.used << endl;
+    cout << "Излишки житкости " << remaining << endl;
+
+    b.flush();
+    cout << "Слили всю воду " << b.used << endl;
+
+    return 0;
+}
