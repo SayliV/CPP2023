@@ -1,0 +1,35 @@
+#include <iostream>
+using namespace std;
+
+class CreditCard {
+private:   
+
+public:
+    int Number;
+    float Balance;
+    CreditCard(int num, float bal) {
+        Number = num;
+        Balance = bal;
+    }
+    void Put(float v) {
+        Balance += v;
+    }
+    void Take(float v) {
+        if (v <= Balance) {
+            Balance -= v;
+        }
+        else {
+            cout << "Not enough funds" << endl;
+        }
+    }
+};
+
+int main() {
+    setlocale(0, "RUSSIAN");
+    CreditCard firstCC(1234, 50);
+    CreditCard* ptrCC = &firstCC;
+    ptrCC->Put(20);
+    ptrCC->Take(10);
+    cout << "Баланс: " << ptrCC->Balance << endl;
+    return 0;
+}
