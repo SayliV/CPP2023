@@ -1,0 +1,62 @@
+#include <iostream>
+using namespace std;
+float velocity_40(float N); // функция для сокрости, если мы взяли его скорость первоночально равной 40км/ч
+float velocity_35(float N); // функция расчёта кругов при скорости 35км/ч и известном общем времени
+const int length_lap = 500;// length lap
+const float presents = 0.95;//уменьшение на 5%
+const float velocity_m_per_seconds_40 = 11.11; // speed 1 pri 40km/h
+const float velocity_m_per_seconds_35 = 9.72; // speed 2 pri 35km/h
+
+int main() {
+    setlocale(LC_ALL, "Russian");
+    int N = 0;   // колчичестов кргуов
+    // присвоил адрес функции к указателю
+    cout << "Введите количестов желаемых кругов не больше 100" << endl;
+    cin >> N;
+    cout << velocity_40(N);
+    float sum_time = velocity_40(N);// присваиваем значение фукции sum_time, sum_time-у в main
+
+    cout << "Для продолжения нажмите любую кнопку" << endl;
+    system("pause"); // для того чтобы просомтерть спокойно выведенные данные
+    cout << "Сумма всего затраченного времени = " << " " << sum_time << endl;
+
+    cout << "Для расчёта количества кругов за данное время нажмите любую кнопку " << endl;
+    system("pause");// для того чтобы просомтерть спокойно выведенные данные
+
+    cout << "Колличестов кругов при скорости 35км/ч " << " " << velocity_35(sum_time);
+    return 0;
+}
+
+//все функции тута
+
+float velocity_40(float N = 0) {
+    int i = 0; // инициализируем счетчик цикла.
+    float time = 0; // инициализируем счетчик суммы.
+    float speed = velocity_m_per_seconds_40;
+    float sum_time = 0;
+    for (int i = 0; i < N; i++) {
+        time = length_lap / speed;
+        speed *= presents;
+        sum_time += time;
+        cout << "Круг: " << i + 1 << " " << "Скорость: " << speed << " м/с;" << " " << "Время:" << " " << time << " " << "c" << endl;
+        cout << "Всего времени затарчено:" << " " << sum_time << "с" << " " << "или в минутах:" << " " << sum_time / 60 << "м" << endl;
+    }
+    return sum_time;
+}
+
+float velocity_35(float sum_time) { //присвоили значение суммы времени из функции velocity_40
+    float sum_time_35 = 0; //создал переменную значения суммы времени для скорости 35км/ч
+    int Laps = 0;
+    float speed = velocity_m_per_seconds_35;
+    float time = 0;
+    for (int i = 0; sum_time > sum_time_35; i++) { 
+        time = length_lap / speed;
+        speed *= presents;
+        sum_time_35 = sum_time_35 + time;
+        if (sum_time < sum_time_35) { // делаю поверку на то чтобы функция не вышла за пределы sum_time
+            break;
+        }
+        Laps += 1;
+    }
+    return  Laps;
+}
