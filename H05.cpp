@@ -1,6 +1,5 @@
-﻿#include <iostream> 
-#include < cmath >
-#include <iomanip>
+#include <iostream> 
+#include <cmath>
 using namespace std;
 
 float usain_run(float V, int N);// прототип функции
@@ -13,8 +12,8 @@ int main() {
     setlocale(LC_ALL, "RUS");
     int N = 0; // количество кругов 
     cout << "Введите количество желаемых кругов (не больше 100): ";
-    cin >> N;    
-    float time = usain_run(velocity_m_per_seconds_40, N); // вызываем функцию для расчета времени забега 
+    cin >> N;
+    usain_run(velocity_m_per_seconds_40, N); // вызываем функцию для расчета времени забега 
     return 0;
 }
 
@@ -22,30 +21,25 @@ int main() {
 float usain_run(float V, int N) {
     cout << "Количество кругов при скорости 40км/ч " << endl;
     cout << "Номер круга   Скорость, км/ч   Время, с" << endl;
-    float time40 = 0; // счетчик времени 
+    float sum_time40 = 0; // счетчик времени 
     float speed = V; // начальная скорость 
     for (int i = 0; i < N; i++) { // цикл по количеству кругов 
-        time40 += length_lap / speed; // добавляем время прохождения круга 
+        sum_time40 += length_lap / speed; // добавляем время прохождения круга 
         speed *= presents; // уменьшаем скорость на 5% после каждого круга 
-        cout << i + 1 << " " << speed * 3.6 << " " << time40 << endl; // выводим номер круга, скорость и затраченное время 
-    }    
+        cout <<"\t" << i + 1 << "\t" << speed * 3.6 << "\t" "\t" << sum_time40 << endl; // выводим номер круга, скорость и затраченное время 
+    }
     float sum_time_35 = 0; //создал переменную значения суммы времени для скорости 35км/ч
     int Laps = 1;
     float speed35 = velocity_m_per_seconds_35;
     cout << "Количество кругов при скорости 35км/ч и уже известном времени" << endl;
-    cout <<  "Номер круга   Скорость, км/ч   Время, с" << endl;
-    
-    for (int i = 0; time40 > sum_time_35; i++) {        
+    cout << "Номер круга   Скорость, км/ч   Время, с" << endl;
+
+    for (int i = 0; sum_time40 > sum_time_35; i++) {
         sum_time_35 = length_lap / speed35;
         speed35 *= presents;
-        sum_time_35 = sum_time_35+ sum_time_35;
-        cout <<Laps << " " << speed35 * 3.6 <<" "<<sum_time_35 <<endl;
-        if (time40 <= sum_time_35) {
-            i--;// делаю поверку на то чтобы функция не вышла за пределы sum_time
-            break;
-        }        
+        sum_time_35 = sum_time_35 + sum_time_35;
+        cout << "\t" << Laps << "\t" << speed35 * 3.6 << "\t" "\t" << sum_time_35 << endl;
         Laps += 1;
     }
     return Laps;
 }
-
