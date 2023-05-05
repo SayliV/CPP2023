@@ -1,0 +1,63 @@
+#include <iostream> 
+ 
+class Complex { 
+private: 
+    double real, imag; 
+    /* Алгоритм решения данной задачи: 
+      1) Создаём объекты класса 
+      2) Вызывает определённый метод (+-/*) 
+      3) Вызов оператора происходит так:  
+        1.Текущий объект определяется автоматически при вызове метода 
+        2.для С1 вызвали метод и он автоматически определился как основной объект 
+        3.к оновному объекту при помощи ссылки мы показываем откуд абрать 2-е значеня 
+        4.производим + и при помощи команды ретёрн выводим значенияп полученного значения комплекса 
+      4) В результате выполнения метода оператор + создаётся новый объект класса комплекс, который содержит значения с1+с2 
+      5) данный объект записывается в с3 
+     
+    */ 
+public: 
+    Complex(double r, double i) { //конструктор класса 
+        real = r; 
+        imag = i; 
+    } 
+ 
+    void show() { 
+        std::cout << real << " + " << imag << "i" << std::endl; 
+    } 
+ 
+    Complex operator+(const Complex &c) { //метод класса который перегружает значение оператора сложения для нашего класса и этого метода 
+        return Complex(real + c.real, imag + c.imag); 
+    } 
+ 
+    Complex operator-(const Complex &c) { 
+        return Complex(real - c.real, imag - c.imag); 
+    } 
+ 
+    Complex operator*(const Complex &c) { 
+        return Complex(real * c.real - imag * c.imag, real * c.imag + imag * c.real); 
+    } 
+ 
+    Complex operator/(const Complex &c) { 
+        double denominator = c.real * c.real + c.imag * c.imag; 
+        return Complex((real * c.real + imag * c.imag) / denominator, (imag * c.real - real * c.imag) / denominator); 
+    } 
+}; 
+ 
+int main() { 
+    Complex c1(4, 5);//объект класса 
+    Complex c2(2, 3); 
+ 
+    Complex c3 = c1 + c2; 
+    c3.show(); 
+ 
+    Complex c4 = c1 - c2; 
+    c4.show(); 
+ 
+    Complex c5 = c1 * c2; 
+    c5.show(); 
+ 
+    Complex c6 = c1 / c2; 
+    c6.show(); 
+ 
+    return 0; 
+}
